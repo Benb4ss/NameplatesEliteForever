@@ -1,0 +1,10 @@
+## Interface: 16001
+## Title: NameplatesEliteForever
+## Notes: Displays the Elite and Rare Elite border art on enemy nameplates. Also includes a +30yd range indicator.
+## Author:  Benbass
+## IconTexture: Interface\AddOns\NameplatesEliteForever\logo
+## Category: Unit Frames
+## SavedVariables: NameplatesEliteForeverDB
+
+
+NameplatesEliteForever.lua
