@@ -1,11 +1,11 @@
 
 local ADDON = ...
 
--- Saved settings ------------------------------------------------------------------------------
-local defaults = {rangeCheck = true}
+-- Saved settings -------------------------------------------------------------------------------------------- Saved settings 
+local defaults = {rangeCheck = false} -- off on first load; the player turns it on in /nef
 local db = defaults
 
--- elite / rare nameplate border ------------------------------------------------------------------------------
+-- elite / rare nameplate border ------------------------------------------------------------------- elite / rare nameplate border 
 local STAR_X, STAR_Y = 40, -18
 local STAR_SIZE = 16
 local GOLD_STAR = "|TInterface\\TargetingFrame\\UI-TargetingFrame-Elite:40:37:0:0:256:128:138:256:0:128|t"
@@ -57,7 +57,7 @@ local function UpdateStar(plate, unit)
     end
 end
 
--- range check nameplate ------------------------------------------------------------------------------
+-- range check nameplate ------------------------------------------------------------------------------ range check nameplate 
 local X, Y = 22, -17
 local SIZE = 12
 local TARGET_SCALE = 1.2
@@ -86,8 +86,8 @@ C_Timer.NewTicker(0.2, function()
             if not fs then
                 fs = plate:CreateFontString(nil, "OVERLAY")
                 texts[plate] = fs
-                fs.appliedScale = nil
-                fs.isTarget = nil
+                --fs.appliedScale = nil  --should be working without it
+                --fs.isTarget = nil
             end
 
             local isTarget = UnitIsUnit(unit, "target")
@@ -113,7 +113,7 @@ C_Timer.NewTicker(0.2, function()
     end
 end)
 
--- Options panel ------------------------------------------------------------------------------
+-- Options panel ------------------------------------------------------------------------------ Options panel 
 local function CreateOptions()
     local panel = CreateFrame("Frame")
     panel.name = "NameplatesEliteForever"
@@ -150,7 +150,7 @@ local function CreateOptions()
     end
 end
 
--- Initialization ------------------------------------------------------------------------------
+-- Initialization ------------------------------------------------------------------------------------- Initialization 
 local loader = CreateFrame("Frame")
 loader:RegisterEvent("ADDON_LOADED")
 loader:SetScript("OnEvent", function(self, _, name)
